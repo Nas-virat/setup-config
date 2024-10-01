@@ -1,0 +1,65 @@
+set incsearch
+set ignorecase
+set smartcase
+set multiple-cursors
+set clipboard+=unnamed
+set ideajoin
+set ideaput
+set relativenumber
+set number
+set surround
+set highlightedyank
+set relativenumber
+set idearefactormode=keep
+set ideajoin
+set showmode
+set which-key
+
+Plug 'tpope/vim-surround'
+set surround
+
+imap jk <ESC>
+
+let mapleader = " "
+
+nnoremap <leader>/ :action CommentByLineComment <CR>
+vnoremap <leader>/ :action CommentByLineComment <CR>
+
+" formatting
+nnoremap <leader>mp :action ReformatCode <CR>
+vnoremap <leader>mp :action ReformatCode <CR>
+nnoremap <leader>jo :action OptimizeImports <CR>
+vnoremap <leader>jo :action OptimizeImports <CR>
+
+"file"
+nnoremap gi :action GotoImplementation <CR>
+nnoremap gd :action GotoDeclaration <CR>
+
+"multi cursor"
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+"hightlight yank"
+let g:highlightedyank_highlight_duration = "5000"
+let g:highlightedyank_highlight_color = "rgba(57, 62, 65, 255)"
+
+"Move between split windows"
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+"Spilt Window"
+nmap <leader>sv <Action>(SplitVertically)
+nmap <leader>sh <Action>(SplitHorizontally)
+
+"Tab editor"
+nmap <Tab> :tabnext<CR>
+nmap <C-Tab> :tabprevious<CR>
+
+"Test"
+nmap <leader>t :action GotoTest<CR>
