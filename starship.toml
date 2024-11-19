@@ -1,0 +1,194 @@
+# Get editor co# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = 'catppuccin_mocha'
+
+format = """\
+[](fg:#c6a0f6)\
+$os\
+[](fg:#c6a0f6 bg:#e64553)\
+$directory\
+[](fg:#e64553 bg:#f5a97f)\
+$git_branch\
+$git_status\
+$package\
+$golang\
+$java\
+$kotlin\
+$gradle\
+$lua\
+$nodejs\
+$python\
+$time
+$character\
+"""
+# format = """\
+# [](fg:#c6a0f6)\
+# $os\
+# [](fg:#c6a0f6 bg:#e64553)\
+# $directory\
+# [](fg:#e64553 bg:#f5a97f)\
+# $git_branch\
+# $git_status\
+# $git_metrics\
+# [](fg:#f5a97f bg:#eed49f)\
+# $cmd_duration\
+# [ ](fg:#eed49f)\
+# $package\
+# $golang\
+# $java\
+# $kotlin\
+# $gradle\
+# $lua\
+# $nodejs\
+# $python\
+# $battery\
+# $time
+# $character\
+# "
+
+command_timeout = 2000
+
+right_format = """
+$gcloud\
+$kubernetes\
+$helm\
+"""
+# right_format = """
+# $shell\
+# $gcloud\
+# $kubernetes\
+# $helm\
+# $docker_context\
+# """
+
+[battery]
+full_symbol = '🔋 '
+charging_symbol = '⚡️ '
+discharging_symbol = '💀 '
+disabled = false
+# [[battery.display]]
+# threshold = 10
+# style = 'bold red'
+
+# [cmd_duration]
+# format = "[  $duration ]($style)"
+# style = "fg:#021526 bg:#eed49f"
+
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](#E84D44) '
+
+[directory]
+format = "[ $path ]($style)"
+style = "fg:#E4E4E4 bg:#e64553"
+
+# [docker_context]
+# format = '[ $context](blue bold) '
+
+[gcloud]
+symbol = "󱇶"
+format = '[$symbol $project]($style) '
+style = 'bold #03cfdf'
+
+[git_branch]
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+symbol = "  "
+style = "fg:#1C3A5E bg:#f5a97f"
+
+[git_status]
+format = '[$all_status]($style)'
+style = "fg:#1C3A5E bg:#f5a97f"
+
+# [git_metrics]
+# format = "([+$added]($added_style))[]($added_style)"
+# added_style = "fg:#1C3A5E bg:#f5a97f"
+# deleted_style = "fg:bright-red bg:235"
+# disabled = false
+
+[golang]
+format = ' [$symbol$version $mod_version]($style)'
+symbol = " "
+
+[gradle]
+format = ' [$symbol($version )]($style)' 
+symbol = ' '
+
+[java]
+format =' [${symbol}(${version} )]($style)' 
+symbol = ' '
+style = 'fg:#9b4847'
+
+[kotlin]
+format = ' [$symbol($version )]($style)'
+symbol = ' '
+
+[kubernetes]
+# format = '[󱃾 ($context( @ $namespace))](bold blue) '
+format = '[󱃾 (@ $namespace)](bold blue) '
+disabled = false
+contexts = [
+  { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
+]
+
+[lua]
+format = ' [$symbol($version)]($style)'
+symbol = '󰢱 '
+
+[nodejs]
+format = ' [$symbol$version]($style) '
+symbol = ' '
+
+[os]
+format = "[$symbol]($style)"
+style = "bg:#c6a0f6 fg:#090c0c"
+disabled = false
+[os.symbols]
+Macos = "󰀵 "
+
+[python]
+format = ' [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = ' '
+pyenv_version_name = true
+
+[package]
+format = '[$symbol $version](208 bold)'
+symbol = '󰏗'
+
+[shell]
+format = '[ $indicator]($style) '
+style = 'white bold'
+disabled = true
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+format = '[[🕰️ $time ](fg:#8DFBD2)]($style)'
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
