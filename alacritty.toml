@@ -1,0 +1,32 @@
+general.import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[selection]
+save_to_clipboard = true
+
+[env]
+TERM = "xterm-256color"
+
+[colors.cursor]
+cursor = "#47FF9C"
+text = "CellBackground"
+
+[window]
+opacity = 0.9
+
+
+[mouse]
+bindings = [
+  { mouse = "Right", action = "Paste" },
+]
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "v"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "c"
+mods = "Control"
