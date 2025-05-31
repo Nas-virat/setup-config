@@ -1,3 +1,5 @@
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/starship.toml
 ### pbcopy 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
@@ -6,10 +8,15 @@ alias sz="source ~/.zshrc"
 alias nc="nvim ~/.config/nvim"
 alias n="nvim ."
 
-### Lazygit
-alias lg="nvim ."
+alias ls='lsd'
 
-alias ng='kubectl exec -it $(kubectl get pods --template "{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}" | grep nginx | head -n 1) -- bash'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+
+alias ngi='kubectl exec -it $(kubectl get pods --template | grep nginx | head -n 1) -- bash'
 
 
 ### Fuzzy finder
@@ -27,6 +34,4 @@ export FZF_ALT_C_OPTS="--preview 'tree {} | head -200'"
 export FZF_COMPLETION_OPTS='--border --info=inline --layout=reverse'
 export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
